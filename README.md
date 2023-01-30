@@ -2,30 +2,31 @@
 
 [![webots.cloud - Competition](https://img.shields.io/badge/webots.cloud-Competition-007ACC)][1]
 
-## Alice controller
+## Alice Java controller
 
-Minimalist controller example for the [Humanoid Robot Wrestling Competition](https://github.com/cyberbotics/wrestling).
-Demonstrates how to play a simple motion file. We use the [Motion class](https://cyberbotics.com/doc/reference/motion?tab-language=python) from Webots.
+Minimalist Java controller example for the [Humanoid Robot Wrestling Competition](https://github.com/cyberbotics/wrestling).
+Demonstrates how to play a simple motion file. We use the [Motion class](https://cyberbotics.com/doc/reference/motion?tab-language=java) from Webots.
 
-``` Python
-from controller import Robot, Motion
+``` Java
+import com.cyberbotics.webots.controller.Robot;
+import com.cyberbotics.webots.controller.Motion;
 
+public class participant {
+  public static void main(String[] args) {
+    // Robot initialization
+    Robot robot = new Robot();
 
-class Alice (Robot):
-    def run(self):
-        # motion files are text files containing pre-recorded positions of the robot's joints
-        handWave = Motion('../motions/HandWave.motion')
-        handWave.setLoop(True)
-        handWave.play()
-        # retrieves the simulation time step (ms) from the world file
-        time_step = int(self.getBasicTimeStep())
-        while self.step(time_step) != -1:  # Mandatory function to make the simulation run
-            pass
+    // Motion files are text files containing pre-recorded positions of the robot's joints
+    Motion handWave = new Motion("../motions/HandWave.motion");
+    // We play the hand-waving motion on loop
+    handWave.setLoop(true);
+    handWave.play();
 
-
-# create the Robot instance and run main loop
-wrestler = Alice()
-wrestler.run()
+    int timeStep = (int) Math.round(robot.getBasicTimeStep());
+    // Mandatory function to make the simulation run
+    while (robot.step(timeStep) != -1);
+  }
+}
 ```
 
 [Bob](https://github.com/cyberbotics/wrestling-bob) is a more advanced robot controller able to win against Alice.
