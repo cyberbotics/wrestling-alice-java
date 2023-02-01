@@ -6,6 +6,7 @@
 
 Minimalist Java controller example for the [Humanoid Robot Wrestling Competition](https://github.com/cyberbotics/wrestling).
 Demonstrates how to play a simple motion file. We use the [Motion class](https://cyberbotics.com/doc/reference/motion?tab-language=java) from Webots.
+It could also be programmed in [Python](https://github.com/cyberbotics/wrestling-alice), [C](https://github.com/cyberbotics/wrestling-alice-c) or [C++](https://github.com/cyberbotics/wrestling-alice-cpp).
 
 Here is the [participant.java](./controllers/participant/participant.java) file:
 
